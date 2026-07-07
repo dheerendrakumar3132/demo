@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equafusion - Live Demos & Portfolio</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f12; 
+            color: #f4f7f6;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Section with Left-Aligned Logo */
+        header {
+            background-color: #000000;
+            padding: 2rem 5%;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 25px;
+        }
+
+        /* Custom CSS Logo Design */
+        .custom-logo {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+            color: #000000;
+            font-size: 45px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        .header-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .header-text p {
+            font-size: 1.05rem;
+            color: #8a8a98;
+        }
+
+        /* Portfolio Grid */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 20px;
+            flex: 1; /* Pushes footer to the bottom */
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Columns in one row */
+            gap: 25px;
+        }
+
+        /* Project Card Design */
+        .card {
+            background: #16161a;
+            border: 1px solid #2a2a35;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffffff;
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .card h3 a {
+            text-decoration: none;
+            color: #ffffff; 
+            transition: color 0.2s ease;
+            display: inline-block;
+        }
+
+        .card h3 a:hover {
+            color: #8a8a98;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #a0a0b0;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Platform Tag and View Demo Button */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .platform-tag {
+            background: #22222b;
+            color: #e0e0e0;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .demo-link {
+            font-size: 0.85rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .demo-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer Design */
+        footer {
+            background-color: #000000;
+            border-top: 1px solid #2a2a35;
+            padding: 3rem 20px 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            color: #8a8a98;
+            font-size: 0.95rem;
+            max-width: 500px;
+            margin: 0 auto 25px auto;
+        }
+
+        .footer-links {
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #8a8a98;
+        }
+
+        .footer-bottom {
+            color: #555566;
+            font-size: 0.85rem;
+            border-top: 1px solid #16161a;
+            padding-top: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr; /* Mobile phone ke liye 1 column */
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .header-text {
+                text-align: center;
+            }
+            .header-text h1 {
+                font-size: 1.8rem;
+            }
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <!-- Custom CSS Generated Logo -->
+            <div class="custom-logo">E</div>
+            
+            <div class="header-text">
+                <h1>EQUAFUSION</h1>
+                <p>Select a project below to view our live client demos & portfolio.</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="portfolio-grid">
+
+            <!-- Card 1 -->
+            <div class="card">
+                <h3><a href="https://www.nykaafashion.com" target="_blank">Fashion Hub E-Commerce</a></h3>
+                <p>A premium online clothing store with automated inventory tracking and seamless payment setup.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Shopify</span>
+                    <a href="https://www.nykaafashion.com" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <h3><a href="https://www.logicstacksoftware.com/portfolio/" target="_blank">Logic Stack Software</a></h3>
+                <p>Corporate portfolio website focused on SEO optimization and business lead generation forms.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">WordPress</span>
+                    <a href="https://www.logicstacksoftware.com/portfolio/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <h3><a href="https://www.behance.net/musemindagency/services" target="_blank">Behance Tech SaaS Landing</a></h3>
+                <p>High-conversion software presentation page featuring smooth animations and custom UI/UX design.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">React JS</span>
+                    <a href="https://www.behance.net/musemindagency/services" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <h3><a href="https://saffronrestaurant.co.in/" target="_blank">Saffron Restaurant</a></h3>
+                <p>Elegant culinary landing page with an online reservation system and digital menu integration.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Wix</span>
+                    <a href="https://saffronrestaurant.co.in/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <h3><a href="https://futuristic-tech.in/" target="_blank">SmartFlow AI Solutions</a></h3>
+                <p>A futuristic agency website integrated with AI automation features and chatbot support.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">React / Node</span>
+                    <a href="https://futuristic-tech.in/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <h3><a href="https://www.empirerealestategroup.in/" target="_blank">Empire Real Estate Group</a></h3>
+                <p>Property listing platform equipped with interactive map views and deep search filtration tools.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">WordPress</span>
+                    <a href="https://www.empirerealestategroup.in/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card">
+                <h3><a href="https://phealthcenter.org/" target="_blank">Petaluma Health Center</a></h3>
+                <p>Patient booking system and informational hub customized for local healthcare clinics and doctors.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Wix Studio</span>
+                    <a href="https://phealthcenter.org/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="card">
+                <h3><a href="https://www.mygreatlearning.com/academy" target="_blank">Great Learning Academy </a></h3>
+                <p>A digital course selling system built for tutors with student dashboards and secure video streaming.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">WordPress / LMS</span>
+                    <a href="https://www.mygreatlearning.com/academy" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="card">
+                <h3><a href="https://sephora.in/" target="_blank">Sephora Cosmetics Store</a></h3>
+                <p>Visually rich shop layout geared towards skincare brands with dynamic customer reviews integration.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Shopify</span>
+                    <a href="https://sephora.in/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="card">
+                <h3><a href="https://www.vanguardlogistics.com/" target="_blank">Vanguard Logistics Hub</a></h3>
+                <p>Tracking dashboard layout meant for transport and heavy delivery management operations.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">React JS</span>
+                    <a href="https://www.vanguardlogistics.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="card">
+                <h3><a href="https://www.saffronstays.com/" target="_blank">SaffronStays Hotel</a></h3>
+                <p>Luxury villa booking platform featuring advanced room selection logic and direct payment collection.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">WordPress</span>
+                    <a href="https://www.saffronstays.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="card">
+                <h3><a href="https://thecreativestudios.in/" target="_blank">Creatives Agency Studio</a></h3>
+                <p>A vibrant web design portfolio focusing heavily on imagery, clean UI/UX, and typography.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Custom HTML/CSS</span>
+                    <a href="https://thecreativestudios.in/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="card">
+                <h3><a href="https://www.striim.com/" target="_blank">Striim Tech Tracker</a></h3>
+                <p>Real-time data visualization layout tracking prices and digital analytics for a modern web3 brand.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">React</span>
+                    <a href="https://www.striim.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="card">
+                <h3><a href="https://www.sangamsagar.com/" target="_blank">Sangam & Sagar Legal Advisors</a></h3>
+                <p>An authoritative presentation page for a multi-partner firm featuring automated appointment bots.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Wix</span>
+                    <a href="https://www.sangamsagar.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 15 -->
+            <div class="card">
+                <h3><a href="https://www.sparindia.com/" target="_blank">Spar India Grocery Store</a></h3>
+                <p>Local grocery web-app presentation and subscription setup utilizing a minimal aesthetic design.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">WordPress</span>
+                    <a href="https://www.sparindia.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-logo">EQUAFUSION</div>
+        <p class="footer-tagline">Empowering businesses with custom Web Development, UI/UX Design, and AI Solutions.</p>
+        
+        <div class="footer-links">
+            <a href="https://www.equafusion.com/contact-us">Contact Us</a>
+            <a href="https://www.equafusion.com/">Our Services</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2026 Equafusion. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
