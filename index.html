@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equafusion - Live Demos & Portfolio</title>
-        <!-- Favicon -->
-    <link rel="icon" href="equafusion-logo.jpeg" type="image/jpeg" sizes="900x900">
     <style>
         /* General Reset */
         * {
@@ -210,7 +208,7 @@
             margin: 0 auto;
         }
 
-/* Responsive Design */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .portfolio-grid {
                 grid-template-columns: 1fr; /* Mobile phone ke liye 1 column */
@@ -247,6 +245,32 @@
                 display: block;
                 margin: 10px 0;
             }
+        }
+/* Load More Button Styles */
+        .load-more-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .load-more-btn {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background-color: #8a8a98;
+            color: #ffffff;
+        }
+
+        .hidden-card {
+            display: none !important;
         }
     </style>
 </head>
@@ -417,8 +441,101 @@
                 </div>
             </div>
 
+           <!-- Card 16 -->
+            <div class="card hidden-card">
+                <h3><a href="https://www.yatra.com/" target="_blank">Yatra Travel Agency</a></h3>
+                <p>A dynamic travel booking platform with destination galleries and tour package filtering.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">WordPress</span>
+                    <a href="https://www.yatra.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 17 -->
+            <div class="card hidden-card">
+                <h3><a href="https://globalgadgets.com/" target="_blank">Global Gadgets</a></h3>
+                <p>High-performance e-commerce store dedicated to consumer electronics and smart devices.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Shopify</span>
+                    <a href="https://globalgadgets.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 18 -->
+             <div class="card hidden-card">
+                <h3><a href="https://www.vector-air.co.uk/" target="_blank">Vector Airguns Store</a></h3>
+                <p>A high-performance e-commerce platform specializing in premium air rifles, pistols, and shooting accessories.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Shopify</span>
+                    <a href="https://www.vector-air.co.uk/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 19 -->
+            <div class="card hidden-card">
+                <h3><a href="https://www.archdaily.com/" target="_blank">ArchDaily Studio</a></h3>
+                <p>Minimalist portfolio website for architects and interior designers featuring high-res project galleries.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Wix Studio</span>
+                    <a href="https://www.archdaily.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 20 -->
+            <div class="card hidden-card">
+                <h3><a href="https://html5up.net/strata" target="_blank">Alex UX Portfolios</a></h3>
+                <p>Personal branding page for freelancers and designers to showcase past work and case studies.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Custom HTML/CSS</span>
+                    <a href="https://html5up.net/strata" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 21 -->
+            <div class="card hidden-card">
+                <h3><a href="https://wealthadvisorstrust.com/" target="_blank">Wealth Advisors Trust Company</a></h3>
+                <p>Corporate finance portal allowing clients to book consulting sessions and view market insights.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">WordPress</span>
+                    <a href="https://wealthadvisorstrust.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 22 -->
+            <div class="card hidden-card">
+                <h3><a href="https://pawsnclawspetshop.com/" target="_blank">Paws N Claws Pet Store</a></h3>
+                <p>Friendly and vibrant online store selling pet food, toys, and grooming appointment bookings.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Shopify</span>
+                    <a href="https://pawsnclawspetshop.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 23 -->
+            <div class="card hidden-card">
+                <h3><a href="https://weddingsdegoa.com/" target="_blank">Wedding De Goa</a></h3>
+                <p>Elegant event management website with RSVP forms, venue galleries, and service packages.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">React / Node</span>
+                    <a href="https://weddingsdegoa.com/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
+
+            <!-- Card 24 -->
+            <div class="card hidden-card">
+                <h3><a href="https://www.cartelstudio.co/" target="_blank">Cartel Hair Studio</a></h3>
+                <p>Local business landing page featuring an integrated barber appointment scheduling system.</p>
+                <div class="card-footer">
+                    <span class="platform-tag">Wix</span>
+                    <a href="https://www.cartelstudio.co/" target="_blank" class="demo-link">Open Site →</a>
+                </div>
+            </div>
         </div>
     </div>
+
+        <div class="load-more-container">
+            <button id="loadMoreBtn" class="load-more-btn">Load More Demos ↓</button>
+        </div>
 
     <!-- Footer Section -->
     <footer>
@@ -436,5 +553,15 @@
         </div>
     </footer>
 
+<!-- Script for Load More Button -->
+    <script>
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            let hiddenCards = document.querySelectorAll('.hidden-card');
+            hiddenCards.forEach(function(card) {
+                card.classList.remove('hidden-card');
+            });
+            this.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
